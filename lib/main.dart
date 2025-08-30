@@ -37,12 +37,11 @@ class MyApp extends StatelessWidget {
         floatingActionButtonTheme: const FloatingActionButtonThemeData(
           backgroundColor: Color(0xFFFF6B35),
         ),
-        cardTheme: CardThemeData(
+        cardTheme: const CardThemeData(
           elevation: 6,
-          shape: const RoundedRectangleBorder(
+          shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(12)),
           ),
-          margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
@@ -653,13 +652,13 @@ class _CarListPageState extends State<CarListPage> {
                                     errorBuilder:
                                         (context, error, stackTrace) =>
                                             Container(
-                                              color: Colors.grey[200],
-                                              child: const Icon(
-                                                Icons.directions_car,
-                                                size: 30,
-                                                color: Colors.grey,
-                                              ),
-                                            ),
+                                      color: Colors.grey[200],
+                                      child: const Icon(
+                                        Icons.directions_car,
+                                        size: 30,
+                                        color: Colors.grey,
+                                      ),
+                                    ),
                                   )
                                 : Container(
                                     color: Colors.grey[200],
@@ -944,14 +943,14 @@ class _AddCarModalState extends State<AddCarModal> {
                             borderRadius: BorderRadius.circular(18),
                             child: _selectedImageFile != null
                                 ? (kIsWeb
-                                      ? Image.memory(
-                                          _selectedImageFile as Uint8List,
-                                          fit: BoxFit.cover,
-                                        )
-                                      : Image.file(
-                                          _selectedImageFile as File,
-                                          fit: BoxFit.cover,
-                                        ))
+                                    ? Image.memory(
+                                        _selectedImageFile as Uint8List,
+                                        fit: BoxFit.cover,
+                                      )
+                                    : Image.file(
+                                        _selectedImageFile as File,
+                                        fit: BoxFit.cover,
+                                      ))
                                 : Container(
                                     color: Colors.grey[100],
                                     child: const Icon(
@@ -1044,9 +1043,8 @@ class _AddCarModalState extends State<AddCarModal> {
                       Expanded(
                         child: Obx(
                           () => ElevatedButton(
-                            onPressed: controller.isSaving.value
-                                ? null
-                                : _saveCar,
+                            onPressed:
+                                controller.isSaving.value ? null : _saveCar,
                             style: ElevatedButton.styleFrom(
                               padding: const EdgeInsets.symmetric(vertical: 16),
                               backgroundColor: const Color(0xFF1A237E),
@@ -1303,21 +1301,21 @@ class _EditCarModalState extends State<EditCarModal> {
                                     ),
                             )
                           : widget.car['foto'] != null &&
-                                widget.car['foto'] != ''
-                          ? ClipRRect(
-                              borderRadius: BorderRadius.circular(13),
-                              child: Image.network(
-                                widget.car['foto'],
-                                fit: BoxFit.cover,
-                                width: 120,
-                                height: 120,
-                              ),
-                            )
-                          : const Icon(
-                              Icons.directions_car,
-                              size: 50,
-                              color: Colors.grey,
-                            ),
+                                  widget.car['foto'] != ''
+                              ? ClipRRect(
+                                  borderRadius: BorderRadius.circular(13),
+                                  child: Image.network(
+                                    widget.car['foto'],
+                                    fit: BoxFit.cover,
+                                    width: 120,
+                                    height: 120,
+                                  ),
+                                )
+                              : const Icon(
+                                  Icons.directions_car,
+                                  size: 50,
+                                  color: Colors.grey,
+                                ),
                     ),
                     const SizedBox(height: 12),
                     Container(
@@ -1404,9 +1402,8 @@ class _EditCarModalState extends State<EditCarModal> {
                       ),
                       child: Obx(
                         () => ElevatedButton(
-                          onPressed: controller.isSaving.value
-                              ? null
-                              : _updateCar,
+                          onPressed:
+                              controller.isSaving.value ? null : _updateCar,
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.transparent,
                             shadowColor: Colors.transparent,
